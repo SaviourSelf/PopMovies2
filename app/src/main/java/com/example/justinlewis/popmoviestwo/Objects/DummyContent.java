@@ -1,4 +1,4 @@
-package com.example.justinlewis.popmoviestwo.dummy;
+package com.example.justinlewis.popmoviestwo.Objects;
 
 import java.util.ArrayList;
 import java.util.HashMap;

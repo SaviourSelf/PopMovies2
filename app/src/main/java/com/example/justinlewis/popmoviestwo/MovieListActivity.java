@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.support.design.widget.FloatingActionButton;
@@ -16,7 +15,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 
-import com.example.justinlewis.popmoviestwo.dummy.DummyContent;
+import com.example.justinlewis.popmoviestwo.Objects.DummyContent;
 
 import java.util.List;
 
