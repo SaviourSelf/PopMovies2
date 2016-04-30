@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.support.design.widget.FloatingActionButton;
@@ -77,6 +78,7 @@ public class MovieListActivity extends AppCompatActivity {
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
         adapter = new SimpleItemRecyclerViewAdapter(mList, this);
         recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(), 3));
     }
 
     public class SimpleItemRecyclerViewAdapter
@@ -119,7 +121,7 @@ public class MovieListActivity extends AppCompatActivity {
                     } else {
                         Context context = v.getContext();
                         Intent intent = new Intent(context, MovieDetailActivity.class);
-                        //intent.putExtra(MovieDetailFragment.ARG_ITEM_ID, holder.mItem.id);
+                        intent.putExtra(MovieDetailFragment.ARG_MOVIE_DATA, movieData);
 
                         context.startActivity(intent);
                     }
@@ -140,6 +142,8 @@ public class MovieListActivity extends AppCompatActivity {
             public ViewHolder(View view) {
                 super(view);
                 mPhoto = (ImageView) view.findViewById(R.id.picture_image);
+                mPhoto.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                mPhoto.setAdjustViewBounds(true);
             }
 
             @Override
