@@ -8,7 +8,7 @@ import android.os.Parcelable;
  */
 public class TrailerObject implements Parcelable {
 
-    String trailerUrl, trailerName;
+    public String trailerUrl, trailerName;
 
     public TrailerObject(Parcel p)
     {
