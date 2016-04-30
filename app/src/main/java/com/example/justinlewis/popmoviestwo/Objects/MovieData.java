@@ -85,11 +85,6 @@ public class MovieData implements Parcelable {
         dest.writeTypedArray(reviewObject,0);
     }
 
-    public int getPhoto()
-    {
-        return 1;
-    }
-
     public String getTitle() {
         return title;
     }
