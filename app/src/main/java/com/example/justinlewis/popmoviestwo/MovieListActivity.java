@@ -108,7 +108,7 @@ public class MovieListActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     if (mTwoPane) {
                         Bundle arguments = new Bundle();
-                        //arguments.putString(MovieDetailFragment.ARG_ITEM_ID, holder.mItem.id);
+                        arguments.putParcelable(MovieDetailFragment.ARG_MOVIE_DATA, holder.mItem);
                         MovieDetailFragment fragment = new MovieDetailFragment();
                         fragment.setArguments(arguments);
                         getSupportFragmentManager().beginTransaction()
@@ -133,6 +133,7 @@ public class MovieListActivity extends AppCompatActivity {
         public class ViewHolder extends RecyclerView.ViewHolder {
 
             public final ImageView mPhoto;
+            public MovieData mItem;
 
             public ViewHolder(View view) {
                 super(view);
