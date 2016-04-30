@@ -1,5 +1,6 @@
 package com.example.justinlewis.popmoviestwo.Objects;
 
+import android.media.Image;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -82,6 +83,11 @@ public class MovieData implements Parcelable {
         dest.writeString(favorite);
         dest.writeString(source);
         dest.writeTypedArray(reviewObject,0);
+    }
+
+    public int getPhoto()
+    {
+        return 1;
     }
 
     public String getTitle() {
