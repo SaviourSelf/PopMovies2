@@ -40,6 +40,7 @@ public class MovieListActivity extends AppCompatActivity {
     private boolean mTwoPane;
     List<MovieData> mList;
     private String last;
+    SimpleItemRecyclerViewAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,16 +50,20 @@ public class MovieListActivity extends AppCompatActivity {
         Utility.lastChosen = last;
         Utility.c = this;
         mList = new ArrayList<MovieData>();
-        FetchMovieDataTask t = new FetchMovieDataTask(mList);
-        t.execute(last);
 
+
+        /*
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle(getTitle());
+        */
 
         View recyclerView = findViewById(R.id.movie_list);
         assert recyclerView != null;
         setupRecyclerView((RecyclerView) recyclerView);
+
+        FetchMovieDataTask t = new FetchMovieDataTask(mList, adapter);
+        t.execute(last);
 
         if (findViewById(R.id.movie_detail_container) != null) {
             // The detail container view will be present only in the
@@ -70,7 +75,8 @@ public class MovieListActivity extends AppCompatActivity {
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
-        recyclerView.setAdapter(new SimpleItemRecyclerViewAdapter(mList, this));
+        adapter = new SimpleItemRecyclerViewAdapter(mList, this);
+        recyclerView.setAdapter(adapter);
     }
 
     public class SimpleItemRecyclerViewAdapter
@@ -94,7 +100,6 @@ public class MovieListActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(final ViewHolder holder, int position) {
 
-            //System.out.println("Setup");
             Picasso.with(mContext).load(mValues.get(position).getPoster_url())
                     .into(holder.mPhoto);
 
@@ -127,12 +132,10 @@ public class MovieListActivity extends AppCompatActivity {
 
         public class ViewHolder extends RecyclerView.ViewHolder {
 
-            //public final TextView mIdView;
             public final ImageView mPhoto;
 
             public ViewHolder(View view) {
                 super(view);
-                //mIdView = (TextView) view.findViewById(R.id.picture_text);
                 mPhoto = (ImageView) view.findViewById(R.id.picture_image);
             }
 

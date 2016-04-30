@@ -3,6 +3,7 @@ package com.example.justinlewis.popmoviestwo.Task;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import com.example.justinlewis.popmoviestwo.MovieListActivity;
 import com.example.justinlewis.popmoviestwo.Objects.MovieData;
 import com.example.justinlewis.popmoviestwo.Utility;
 
@@ -16,9 +17,11 @@ import java.util.List;
 public class FetchMovieDataTask extends AsyncTask<String, Void, MovieData[]> {
 
     List<MovieData> mList;
+    MovieListActivity.SimpleItemRecyclerViewAdapter mAdapter;
 
-    public FetchMovieDataTask(List<MovieData> list)
+    public FetchMovieDataTask(List<MovieData> list, MovieListActivity.SimpleItemRecyclerViewAdapter adapter)
     {
+        mAdapter = adapter;
         mList = list;
     }
 
@@ -59,6 +62,6 @@ public class FetchMovieDataTask extends AsyncTask<String, Void, MovieData[]> {
         mList.clear();
         for (MovieData s : capturedList)
             mList.add(s);
-        System.out.println("LIST SIZE: " + mList.size());
+        mAdapter.notifyDataSetChanged();
     }
 }

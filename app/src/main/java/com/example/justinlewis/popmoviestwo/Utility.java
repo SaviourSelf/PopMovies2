@@ -304,8 +304,9 @@ public class Utility {
                 values.put(MovieProvider.TRAILER_FIELD, packTrailers(t));
                 values.put(MovieProvider.FAVORITE_FIELD, "no");
                 Uri uri = c.getContentResolver().insert(MovieProvider.CONTENT_URI, values);
-                cursor.close();
+
             }
+            cursor.close();
 
         }
         return retVal;
