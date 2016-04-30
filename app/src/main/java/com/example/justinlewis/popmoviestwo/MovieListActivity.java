@@ -99,16 +99,18 @@ public class MovieListActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(final ViewHolder holder, int position) {
-
-            Picasso.with(mContext).load(mValues.get(position).getPoster_url())
+            final MovieData movieData = mValues.get(position);
+            Picasso.with(mContext).load(movieData.getPoster_url())
                     .into(holder.mPhoto);
+
+            //final MovieData movieData = mValues.get(position);
 
             holder.mPhoto.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (mTwoPane) {
                         Bundle arguments = new Bundle();
-                        arguments.putParcelable(MovieDetailFragment.ARG_MOVIE_DATA, holder.mItem);
+                        arguments.putParcelable(MovieDetailFragment.ARG_MOVIE_DATA, movieData);
                         MovieDetailFragment fragment = new MovieDetailFragment();
                         fragment.setArguments(arguments);
                         getSupportFragmentManager().beginTransaction()
