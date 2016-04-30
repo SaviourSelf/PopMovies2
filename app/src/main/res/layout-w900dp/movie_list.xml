@@ -25,7 +25,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"
         app:layoutManager="GridLayoutManager"
-
+        android:layout_weight="1"
         tools:context="com.example.justinlewis.popmoviestwo.MovieListActivity"
         tools:listitem="@layout/movie_list_content" />
 
@@ -38,6 +38,7 @@ android:layout_marginLeft="16dp"
         android:id="@+id/movie_detail_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_weight="1"
         />
 
 </LinearLayout>

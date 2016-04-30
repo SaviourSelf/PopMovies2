@@ -59,6 +59,10 @@ public class MovieListActivity extends AppCompatActivity {
         toolbar.setTitle(getTitle());
         */
 
+        if (findViewById(R.id.movie_detail_container) != null) {
+            mTwoPane = true;
+        }
+
         View recyclerView = findViewById(R.id.movie_list);
         assert recyclerView != null;
         setupRecyclerView((RecyclerView) recyclerView);
@@ -66,19 +70,15 @@ public class MovieListActivity extends AppCompatActivity {
         FetchMovieDataTask t = new FetchMovieDataTask(mList, adapter);
         t.execute(last);
 
-        if (findViewById(R.id.movie_detail_container) != null) {
-            // The detail container view will be present only in the
-            // large-screen layouts (res/values-w900dp).
-            // If this view is present, then the
-            // activity should be in two-pane mode.
-            mTwoPane = true;
-        }
+
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
         adapter = new SimpleItemRecyclerViewAdapter(mList, this);
         recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(), 3));
+        int dims = (mTwoPane) ? 3 : 2;
+        GridLayoutManager g = new GridLayoutManager(getApplicationContext(), dims);
+        recyclerView.setLayoutManager(g);
     }
 
     public class SimpleItemRecyclerViewAdapter
@@ -104,8 +104,6 @@ public class MovieListActivity extends AppCompatActivity {
             final MovieData movieData = mValues.get(position);
             Picasso.with(mContext).load(movieData.getPoster_url())
                     .into(holder.mPhoto);
-
-            //final MovieData movieData = mValues.get(position);
 
             holder.mPhoto.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -137,13 +135,10 @@ public class MovieListActivity extends AppCompatActivity {
         public class ViewHolder extends RecyclerView.ViewHolder {
 
             public final ImageView mPhoto;
-            public MovieData mItem;
 
             public ViewHolder(View view) {
                 super(view);
                 mPhoto = (ImageView) view.findViewById(R.id.picture_image);
-                mPhoto.setScaleType(ImageView.ScaleType.CENTER_CROP);
-                mPhoto.setAdjustViewBounds(true);
             }
 
             @Override
