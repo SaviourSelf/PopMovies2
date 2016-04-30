@@ -59,5 +59,6 @@ public class FetchMovieDataTask extends AsyncTask<String, Void, MovieData[]> {
         mList.clear();
         for (MovieData s : capturedList)
             mList.add(s);
+        System.out.println("LIST SIZE: " + mList.size());
     }
 }

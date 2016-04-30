@@ -94,6 +94,7 @@ public class MovieListActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(final ViewHolder holder, int position) {
 
+            //System.out.println("Setup");
             Picasso.with(mContext).load(mValues.get(position).getPoster_url())
                     .into(holder.mPhoto);
 
@@ -126,12 +127,12 @@ public class MovieListActivity extends AppCompatActivity {
 
         public class ViewHolder extends RecyclerView.ViewHolder {
 
-            public final TextView mIdView;
+            //public final TextView mIdView;
             public final ImageView mPhoto;
 
             public ViewHolder(View view) {
                 super(view);
-                mIdView = (TextView) view.findViewById(R.id.picture_text);
+                //mIdView = (TextView) view.findViewById(R.id.picture_text);
                 mPhoto = (ImageView) view.findViewById(R.id.picture_image);
             }
 
