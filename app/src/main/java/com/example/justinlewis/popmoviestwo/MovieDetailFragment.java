@@ -6,13 +6,11 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.justinlewis.popmoviestwo.Objects.DummyContent;
 import com.example.justinlewis.popmoviestwo.Objects.MovieData;
 import com.squareup.picasso.Picasso;
 
@@ -28,8 +26,6 @@ public class MovieDetailFragment extends Fragment {
     TextView releaseDate;
     TextView voteAverage;
     ImageView imageView;
-    MenuItem menuItem;
-
 
     public MovieDetailFragment() {
     }
@@ -55,7 +51,6 @@ public class MovieDetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.movie_detail, container, false);
 
-        // Show the dummy content as text in a TextView.
         Log.v("Item is null?", " " + (mItem == null));
         if (mItem != null) {
            ((TextView) rootView.findViewById(R.id.movie_title)).setText(mItem.getTitle());
