@@ -292,7 +292,7 @@ public class Utility {
             retVal[i].setReviewObject(r);
             retVal[i].setTrailerObject(t);
 
-            if (cursor.getCount() == 0) {
+            if (cursor != null && cursor.getCount() == 0) {
                 values.put(MovieProvider.ID_FIELD, retVal[i].getId());
                 values.put(MovieProvider.PLOT_FIELD, retVal[i].getPlot_synopsis());
                 values.put(MovieProvider.POSTER_URL_FIELD, retVal[i].getPoster_url());
@@ -304,8 +304,9 @@ public class Utility {
                 values.put(MovieProvider.TRAILER_FIELD, packTrailers(t));
                 values.put(MovieProvider.FAVORITE_FIELD, "no");
                 Uri uri = c.getContentResolver().insert(MovieProvider.CONTENT_URI, values);
+                cursor.close();
             }
-            cursor.close();
+
         }
         return retVal;
     }

@@ -14,10 +14,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.justinlewis.popmoviestwo.Task.FetchMovieDataTask;
 import com.squareup.picasso.Picasso;
 
-
-import com.example.justinlewis.popmoviestwo.Objects.DummyContent;
 import com.example.justinlewis.popmoviestwo.Objects.MovieData;
 
 import java.util.ArrayList;
@@ -39,13 +39,18 @@ public class MovieListActivity extends AppCompatActivity {
      */
     private boolean mTwoPane;
     List<MovieData> mList;
+    private String last;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_list);
-
+        last = "popular";
+        Utility.lastChosen = last;
+        Utility.c = this;
         mList = new ArrayList<MovieData>();
+        FetchMovieDataTask t = new FetchMovieDataTask(mList);
+        t.execute(last);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

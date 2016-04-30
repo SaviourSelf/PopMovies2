@@ -7,7 +7,7 @@ import android.net.Uri;
  */
 public class MovieContract {
 
-    public static final String CONTENT_AUTHORITY = "com.example.justinlewis.popularmovies";
+    public static final String CONTENT_AUTHORITY = "com.example.justinlewis.popmoviestwo";
     public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY + "/movies");
 
     public static Uri buildMovieUri(String movieID)
