@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">PopMoviesTwo</string>
     <string name="title_movie_detail">Movie Detail</string>
+    <string name="main_activity_title_popular">Popular</string>
+    <string name="main_activity_title_top_rated">Top Rated</string>
+    <string name="main_activity_title_favorite">Favorite</string>
 </resources>

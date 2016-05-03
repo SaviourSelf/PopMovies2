@@ -44,15 +44,17 @@ public class MovieDetailFragment extends Fragment {
             mItem = getArguments().getParcelable(ARG_MOVIE_DATA);
             Log.v("Item title", " " + mItem.getTitle());
             Activity activity = this.getActivity();
+            /*
             CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
             if (appBarLayout != null) {
                 appBarLayout.setTitle(mItem.getTitle());
             }
+            */
         }
     }
 
     @Override
-    public void onCreateOptionsMenu(Menu menu,MenuInflater inflater) {
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         // Do something that differs the Activity's menu here
         super.onCreateOptionsMenu(menu, inflater);
         MenuItem item = menu.getItem(1);
