@@ -57,13 +57,14 @@ public class MovieDetailFragment extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         // Do something that differs the Activity's menu here
         super.onCreateOptionsMenu(menu, inflater);
-        MenuItem item = menu.getItem(1);
+
+//        MenuItem item = menu.getItem(1);
         System.out.println("infalting...");
-        this.menuItem = item;
-        int icon = android.R.drawable.star_big_on;
-        if (mItem != null && !mItem.getFavorite().equals("no")) {
-            menu.getItem(1).setIcon(icon);
-        }
+//        this.menuItem = item;
+//        int icon = android.R.drawable.star_big_on;
+//        if (mItem != null && !mItem.getFavorite().equals("no")) {
+//            menu.getItem(1).setIcon(icon);
+//        }
     }
 
     @Override

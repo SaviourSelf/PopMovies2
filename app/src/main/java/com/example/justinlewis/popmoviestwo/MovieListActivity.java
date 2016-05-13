@@ -42,6 +42,7 @@ public class MovieListActivity extends AppCompatActivity {
     List<MovieData> mList;
     private String last;
     SimpleItemRecyclerViewAdapter adapter;
+    //Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,11 +54,12 @@ public class MovieListActivity extends AppCompatActivity {
         mList = new ArrayList<MovieData>();
 
 
-        /*
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle(getTitle());
-        */
+        //toolbar.add
+
 
         if (findViewById(R.id.movie_detail_container) != null) {
             mTwoPane = true;
